@@ -15,9 +15,9 @@ class Command(BaseCommand):
     model_name = kwargs['model_name'].capitalize()
 
     model = None
-    for app_confing in apps.get_app_configs():
+    for app_config in apps.get_app_configs():
       try:
-        model = apps.get_model(app_confing.label,model_name)
+        model = apps.get_model(app_config.label,model_name)
         break #Stop searching once model is found
       except LookupError:
         continue # model not found in this app, so continue searching in the next app
